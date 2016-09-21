@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:beans="http://www.springframework.org/schema/beans">
+
+    <context:component-scan base-package="com.fpt.university.toandc.*"/>
+
+    <security:http auto-config="true">
+        <security:intercept-url pattern="/" access="permitAll"/>
+        <security:intercept-url pattern="/home" access="hasRole('USER')"/>
+        <security:intercept-url pattern="/admin**" access="hasRole('ADMIN')"/>
+        <security:form-login login-page="/login"
+                             username-parameter="username"
+                             password-parameter="password"
+                             authentication-failure-url="/access_denied"/>
+        <security:csrf/>
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="appUserDetailsService"/>
+    </security:authentication-manager>
+
+    <beans:bean id="appUserDetailsService" class="com.fpt.university.toandc.security.AppUserDetailsService" autowire="byType"/>
+</beans>
