@@ -13,7 +13,9 @@
 
     <security:http auto-config="true">
         <security:intercept-url pattern="/" access="permitAll"/>
-        <security:intercept-url pattern="/home" access="hasRole('USER')"/>
+        <security:intercept-url pattern="/home**" access="hasRole('USER')"/>
+        <security:intercept-url pattern="/user" access="permitAll"/>
+        <security:intercept-url pattern="/search**" access="permitAll"/>
         <security:intercept-url pattern="/admin**" access="hasRole('ADMIN')"/>
         <security:form-login login-page="/login"
                              username-parameter="username"

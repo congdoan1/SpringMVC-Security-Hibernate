@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -9,7 +10,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>Metronic | User Login 1</title>
+    <title>Homestay | Login</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta content="" name="description"/>
@@ -54,7 +55,7 @@
 <!-- BEGIN LOGIN -->
 <div class="content">
     <!-- BEGIN LOGIN FORM -->
-    <form class="login-form" action="/login" method="post">
+    <form class="login-form" action="<c:url value="/login"/>" method="post">
         <h3 class="form-title font-green">Sign In</h3>
         <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
@@ -79,7 +80,7 @@
             <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
         </div>
         <div class="login-options">
-            <h4>Or login with</h4>
+            <h4>Or login with <a href="<c:url value="/admin"/>" id="admin-page">Admin</a></h4>
             <ul class="social-icons">
                 <li>
                     <a class="social-icon-color facebook" data-original-title="facebook" href="javascript:;"></a>

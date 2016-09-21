@@ -3,6 +3,7 @@ package com.fpt.university.toandc.service.impl;
 import com.fpt.university.toandc.dao.UserDAO;
 import com.fpt.university.toandc.model.User;
 import com.fpt.university.toandc.service.UserService;
+import com.fpt.university.toandc.support.SortType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,6 +35,11 @@ public class UserServiceImpl implements UserService {
     public User findByUsername(String username) {
         return userDAO.findByUsername(username);
     }
+
+    public List<User> findByName(String name, SortType sortType) {
+        return userDAO.findByName(name, sortType);
+    }
+
 
     public void deleteUser(long userId) {
         userDAO.deleteUser(userId);

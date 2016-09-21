@@ -13,10 +13,7 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="com.fpt.university.toandc.controller"/>
-    <context:component-scan base-package="com.fpt.university.toandc.security"/>
-    <context:component-scan base-package="com.fpt.university.toandc.dao.impl"/>
-    <context:component-scan base-package="com.fpt.university.toandc.service.impl"/>
+    <context:component-scan base-package="com.fpt.university.toandc.*"/>
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 

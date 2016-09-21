@@ -28,7 +28,7 @@ public class AppUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println("userService null: " + (userService == null));
         User user = userService.findByUsername(username);
-        if (user == null) {
+            if (user == null) {
             System.out.println("User not found");
             throw new UsernameNotFoundException("Username not found");
         }
